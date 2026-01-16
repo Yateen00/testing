@@ -4,5 +4,5 @@ services:
     volumes:
       - ./message.txt:/usr/share/nginx/html/index.html:ro
     ports:
-      - "5010:85"
+      - "85"
     restart: unless-stopped
