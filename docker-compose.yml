@@ -1,7 +1,6 @@
 services:
   app:
     image: nginx:alpine
-    container_name: test_webhook_app
     volumes:
       - ./message.txt:/usr/share/nginx/html/index.html:ro
     ports:
