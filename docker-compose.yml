@@ -3,6 +3,6 @@ services:
     image: nginx:alpine
     volumes:
       - ./message.txt:/usr/share/nginx/html/index.html:ro
-    ports:
+    expose:
       - "85"
     restart: unless-stopped
