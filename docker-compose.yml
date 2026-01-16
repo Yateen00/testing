@@ -1,28 +1,26 @@
 services:
   app_green:
     image: nginx:alpine
-    container_name: app_${COMPOSE_PROJECT_NAME}_green
     volumes:
       - ./message.txt:/usr/share/nginx/html/index.html:ro
-    ports:
-      - "3101:3100"
+    expose:
+      - "80"
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "wget", "-qO-", "http://localhost:85"]
+      test: ["CMD", "wget", "-qO-", "http://localhost"]
       interval: 2s
       timeout: 1s
       retries: 10
 
   app_blue:
     image: nginx:alpine
-    container_name: app_${COMPOSE_PROJECT_NAME}_blue
     volumes:
       - ./message.txt:/usr/share/nginx/html/index.html:ro
-    ports:
-      - "3102:3100"
+    expose:
+      - "80"
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "wget", "-qO-", "http://localhost:85"]
+      test: ["CMD", "wget", "-qO-", "http://localhost"]
       interval: 2s
       timeout: 1s
       retries: 10
